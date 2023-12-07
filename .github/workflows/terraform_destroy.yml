@@ -37,7 +37,7 @@ jobs:
       - name: Terraform Plan Destroy
         run: terraform plan -destroy
 
-  terraform_apply:
+  terraform_destroy:
     name: "Terraform Destroy"
     needs: [terraform_plan_destroy]
     runs-on: ubuntu-latest
@@ -61,3 +61,14 @@ jobs:
 
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
+
+  terraform_test_destroy:
+    name: "Terraform Test"
+    needs: [terraform_plan_destroy, terraform_destroy]
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      # TEST placholder
+      - name: Checkout
+        run: echo "TEST Placeholder"

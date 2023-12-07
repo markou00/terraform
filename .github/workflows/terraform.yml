@@ -72,3 +72,14 @@ jobs:
       - name: Terraform Apply
         run: terraform apply -auto-approve
         if: ${{inputs.tf_destroy}} == false
+
+  terraform_test:
+    name: "Terraform Test"
+    needs: [terraform_plan, terraform_apply]
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      # TEST placholder
+      - name: Checkout
+        run: echo "TEST Placeholder"
