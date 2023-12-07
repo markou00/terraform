@@ -113,7 +113,7 @@ resource "azurerm_linux_virtual_machine" "ntnu-vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("~/.ssh/ntnuazurekey.pub")
+    public_key = file("ntnuazurekey.pub")
   }
 
   os_disk {
